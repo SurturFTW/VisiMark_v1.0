@@ -9,7 +9,7 @@ import { setContext } from "apollo-link-context";
 const httpLink = createHttpLink({
   uri:
     !process.env.NODE_ENV || process.env.NODE_ENV === "development"
-      ? "https://visimark-backend.onrender.com/"
+      ? "http://localhost:4000/"
       : "https://visimark-backend.onrender.com",
 });
 
