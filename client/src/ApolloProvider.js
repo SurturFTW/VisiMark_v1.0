@@ -10,7 +10,7 @@ const httpLink = createHttpLink({
   uri:
     !process.env.NODE_ENV || process.env.NODE_ENV === "development"
       ? "http://localhost:4000/"
-      : "https://api-attendlytical.herokuapp.com",
+      : "https://visimark-v1-0.onrender.com",
 });
 
 const authLink = setContext(() => {
