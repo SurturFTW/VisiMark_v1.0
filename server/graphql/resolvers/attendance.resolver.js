@@ -163,9 +163,9 @@ module.exports = {
             attendanceURL: `${OfficialURL}/course/${course.shortID}/attendanceRoom/${attendance._id}`,
           });
 
-          const studentDoc = await Person.findById(enrolment.student);
-          //notify student through email
-          /* await sendEmail(
+          /*const studentDoc = await Person.findById(enrolment.student);
+          // notify student through email
+           await sendEmail(
             studentDoc.email,
             studentDoc.firstName,
             MAIL_TEMPLATE_TYPE.CreateAttendance,
