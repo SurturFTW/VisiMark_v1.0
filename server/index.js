@@ -1,31 +1,34 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const { ApolloServer, PubSub } = require('apollo-server');
+const { ApolloServer, PubSub } = require("apollo-server");
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const typeDefs = require('./graphql/typeDefs');
+const typeDefs = require("./graphql/typeDefs");
 
-const resolvers = require('./graphql/resolvers');
+const resolvers = require("./graphql/resolvers");
 
 const pubsub = new PubSub();
 
 const PORT = process.env.PORT || 4000;
 
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || "development";
 
 const server = new ApolloServer({
   cors: {
-    origin: env == "development" ? ['http://localhost:3000'] : ['https://visimark-frontend.onrender.com'],
-    credentials: true
+    origin:
+      env == "development"
+        ? ["http://localhost:3000"]
+        : ["https://visimark.netlify.app/"],
+    credentials: true,
   },
   typeDefs,
   resolvers,
   context: ({ req }) => ({ req, pubsub }),
 });
 
-mongoose.set('useCreateIndex', true);
-mongoose.set('useFindAndModify', false);
+mongoose.set("useCreateIndex", true);
+mongoose.set("useFindAndModify", false);
 
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -33,7 +36,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log('MongoDB Connected');
+    console.log("MongoDB Connected");
     return server.listen({ port: PORT });
   })
   .then((res) => {
@@ -42,4 +45,3 @@ mongoose
   .catch((err) => {
     console.error(err);
   });
-
