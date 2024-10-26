@@ -19,7 +19,7 @@ const server = new ApolloServer({
     origin:
       env == "development"
         ? ["http://localhost:3000"]
-        : ["https://VisiMark.netlify.app"],
+        : ["https://visimark.vercel.app/"],
     credentials: true,
   },
   typeDefs,
