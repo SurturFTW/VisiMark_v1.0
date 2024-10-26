@@ -51,9 +51,3 @@ A faceface recognition based attendance monitoting system.
 7. The photo will be uploaded to the image storage.
 8. When your lecturer take the attendance of a particular course, all your uploaded facial data will be counted into the dataset for facial comparison.
 9. Visualize the attendance data in "Attendance History", or you can enter a particular course and click "View Attendance History".
-
-
-</table>
-<br>
-<img src="https://i.ibb.co/b7G0ddr/ERD.png">
-<br>
