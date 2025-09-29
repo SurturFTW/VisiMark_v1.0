@@ -14,6 +14,9 @@ const PORT = process.env.PORT || 4000;
 
 var env = process.env.NODE_ENV || "development";
 
+const cors = require("cors");
+app.use(cors());
+
 const server = new ApolloServer({
   cors: {
     origin:
